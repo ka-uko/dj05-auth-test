@@ -1,9 +1,10 @@
 from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, CreateView
+
+from .forms import CustomUserCreationForm
 
 
 class IndexView(TemplateView):
@@ -14,8 +15,8 @@ class ProfileView(LoginRequiredMixin, TemplateView):
     login_url = 'login'  # перенаправление неавторизованных пользователей
 
 class RegisterView(CreateView):
-    form_class = UserCreationForm
-    template_name = 'main/register.html'
+    form_class = CustomUserCreationForm
+    template_name = 'register.html'
     success_url = reverse_lazy('login')
 
     def form_valid(self, form):

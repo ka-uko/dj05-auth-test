@@ -122,6 +122,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#Access Mixin
-# AUTH_USER_MODEL = 'main.User'
+
+AUTH_USER_MODEL = 'main.User'
 # LOGIN_URL = '/login'
